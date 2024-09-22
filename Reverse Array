@@ -1,0 +1,20 @@
+Reverse the array using two pointer appeoach
+
+
+    public static int[] reverseArray(int arr[], int length) {
+        // Your implementation here to reverse the array and return a new array
+        int s = arr.length;
+         int p1 = 0;
+         int p2 = s - 1;
+
+         while(p1 < p2)
+         {
+            int temp = arr[p1];
+            arr[p1] = arr[p2];
+            arr[p2] = temp;
+            p1++;
+            p2--;
+         }
+
+         return arr;
+    }
