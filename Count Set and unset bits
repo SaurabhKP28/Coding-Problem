@@ -1,0 +1,119 @@
+Count set and unset bits
+
+Task Points: 50
+
+Topic
+
+Data Structure and Algo
+Task details
+
+Problem Statement:
+
+You are given a non-negative integer num. Your task is to count the number of set (1) and unset (0) bits in the binary representation of num. The binary representation of num is considered to have its rightmost bit as position 0.
+
+
+
+Constraints:
+
+0 ≤ num ≤ 10^9
+
+
+
+Input Format:
+
+An integer num representing the given number.
+
+
+
+Output Format:
+
+An array containing two integers: the count of set bits at index 0 and the count of unset bits at index 1.
+
+
+
+Examples:
+
+
+
+Example 1:
+
+Input:
+
+num = 10
+
+
+
+Output:
+
+[2, 2]
+
+
+
+Explanation:
+
+The binary representation of 10 is 1010. There are 2 set bits and 2 unset bits.
+
+
+
+Example 2:
+
+Input:
+
+num = 7
+
+
+
+Output:
+
+[3, 0]
+
+
+
+Explanation:
+
+The binary representation of 7 is 111. There are 3 set bits and 0 unset bits.
+====================================================================================================================================================================================================================
+====================================================================================================================================================================================================================
+Solution
+====================================================================================================================================================================================================================
+
+
+class Solution {
+    // you need to treat n as an unsigned value
+    public int[] countBits(int num) {
+        int setBits = 0;
+        int totalBits = 0;
+        
+        // Count set bits
+        while (num > 0) {
+            if ((num & 1) == 1) {
+                setBits++;
+            }
+            totalBits++;
+            num >>= 1; // Right shift to process the next bit
+        }
+
+        // Calculate unset bits
+        int unsetBits = totalBits - setBits;
+        
+        return new int[] { setBits, unsetBits };
+    }
+}
+
+//========== User's Code Ends Here ==========
+
+
+
+public class Main
+{
+     public static void main(String[]args)
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        Solution s =new Solution();
+        int[] ans= s.countBits(n);
+        for(int i = 0;i < ans.length;i++)
+            System.out.println(ans[i]);
+    }
+}
+
