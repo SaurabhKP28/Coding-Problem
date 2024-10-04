@@ -1,0 +1,74 @@
+Check whether the string is Anagram or not
+
+Task Points: 50
+
+Topic
+
+Data Structure and Algo
+Task details
+
+Problem Statement:
+
+You are given two strings, and your task is to determine whether they are anagrams or not.
+
+
+
+Constraints:
+
+1 <= length of string <= 10^5
+
+The input strings consist only of lowercase English letters.
+
+
+
+Input Format:
+
+Two lines, each containing a string of lowercase English letters.
+
+
+
+Output Format:
+
+A boolean value indicating whether the given strings are anagrams or not. Return True if they are anagrams, and False otherwise.
+
+
+
+Examples:
+
+Input : s1 = "abcd" , s2 = "acdb"
+
+Output : true
+====================================================================================================================================================================================================================
+====================================================================================================================================================================================================================
+Solution
+====================================================================================================================================================================================================================
+public static boolean areAnagrams(String s, String t) {
+        // Get the lengths of both strings
+        int m = s.length();
+        int n = t.length();
+
+        // If lengths are not equal, they can't be anagrams
+        if (m != n) {
+            return false;
+        } else {
+            // Create a count array to store frequencies of characters
+            int[] count = new int[26];
+
+            // Increment the count for each character in the first string
+            for (int i = 0; i < m; i++) {
+                count[s.charAt(i) - 'a']++;
+            }
+
+            // Decrement the count for each character in the second string
+            for (int i = 0; i < n; i++) {
+                count[t.charAt(i) - 'a']--;
+            }
+
+            // Check if all counts are zero, meaning all characters match
+            for (int i = 0; i < count.length; i++) {
+                if (count[i] != 0) {
+                    return false; // If any count is non-zero, they are not anagrams
+                }
+            }
+            return true; // All counts are zero, so they are anagrams
+        }
