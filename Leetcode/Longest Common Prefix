@@ -1,0 +1,82 @@
+Longest Common Prefix - 14 
+
+Task Points: 50
+
+Topic
+
+Data Structure and Algo
+Task details
+
+Problem Statement:
+
+Given an array of strings, find the longest common prefix among the strings of an array.
+
+
+
+Constraints:
+
+2 <= n <= 10^4
+
+1 <=  length of each string (m) <= 30.
+
+Each string in the array consists only of lowercase letters.
+
+
+
+Input Format:
+
+An array of strings.
+
+
+
+Output Format:
+
+A string representing the longest common prefix among the input strings.
+
+
+
+Examples:
+
+
+
+Input: ["flower", "flow", "flight"]
+
+
+
+Output: "fl"
+
+
+
+Input: ["dog", "racecar", "car"]
+
+
+
+Output: ""
+===================================================================================================================================================================
+===================================================================================================================================================================
+Solution 
+===================================================================================================================================================================
+class Solution {
+    public String longestCommonPrefix(String[] strs) {
+       if (strs == null || strs.length == 0) {
+            return "";  // Return empty string if input is empty.
+        }
+
+        // Start with the first string as the initial prefix
+        String prefix = strs[0];
+
+        // Loop through each string in the array
+        for (int i = 1; i < strs.length; i++) {
+            // Check for the common prefix between the current string and the prefix
+            while (strs[i].indexOf(prefix) != 0) {
+                // Shorten the prefix by one character from the end
+                prefix = prefix.substring(0, prefix.length() - 1);
+                // If the prefix becomes empty, return empty string
+                if (prefix.isEmpty()) {
+                    return "";
+                }
+            }
+        }
+        return prefix;
+    }
+}
