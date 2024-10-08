@@ -1,0 +1,76 @@
+Maximum Occurring Character
+
+Task Points: 50
+
+Topic
+
+Data Structure and Algo
+Task details
+
+Problem Statement:
+
+Given a string,find the character that occurs the maximum number of times in the string.
+
+If there are multiple characters with equal max frequency , return lexicographically smallest character.
+
+
+
+Constraints:
+
+1 <= n <= 10^5
+
+The input string consists only of lowercase letters.
+
+
+
+Input Format:
+
+A single line containing a string of lowercase letters.
+
+
+
+Output Format:
+
+The character that occurs the maximum number of times in the string.
+
+
+
+Examples:
+
+
+
+1.
+
+Input: aabcdee
+
+Output : a
+
+Explanation: 'a' and 'e' occurs 2 times, but 'a' is lexicographically smallest so return 'a'
+====================================================================================================================================================================================================================
+====================================================================================================================================================================================================================
+Solution 
+====================================================================================================================================================================================================================
+
+class Solution {
+    public char maxOccuringChar(String s) {
+
+        int arr[] = new int[256];
+        for(int i = 0; i < s.length(); i++)
+        {
+            arr[s.charAt(i)] +=1;
+        }
+
+        int max = -1;
+        char c = ' ';
+        for(int i = 0; i < s.length(); i++)
+        {
+            if(max < arr[s.charAt(i)]){
+                max = arr[s.charAt(i)];
+                c = s.charAt(i);
+            }
+        }
+
+        return c ;
+        
+    }
+}
