@@ -1,0 +1,115 @@
+Determine whether B is a substring of A
+
+Task Points: 50
+
+Topic
+
+Data Structure and Algo
+Task details
+
+Problem Statement:
+
+Given two strings A and B, determine whether B is a substring of A or not.
+
+
+
+Constraints:
+
+The lengths of strings A and B are in the range [1, 1000].
+The strings consist of only lowercase English letters.
+
+
+Examples:
+
+Example 1:
+
+Input: A = "hello", B = "ll"
+
+Output: true
+
+Explanation: "ll" is a substring of "hello".
+
+
+
+Example 2 :
+
+Input: A = "abcd", B = "ef"
+
+Output: false
+
+Explanation: "ef" is not a substring of "abcd".
+
+
+
+Watch the following Video to understand about KMP algorithm
+====================================================================================================================================================================================================================
+====================================================================================================================================================================================================================
+Solution 
+====================================================================================================================================================================================================================
+
+class Solution {
+    public boolean isSubstring(String A, String B) {
+        
+            int n = A.length();
+        int m = B.length();
+        
+        // Create LPS array for the pattern B
+        int[] lps = createLPSArray(B);
+        
+        int i = 0; // index for A
+        int j = 0; // index for B
+        
+        // Iterate through A to find if B is a substring
+        while (i < n) {
+            if (A.charAt(i) == B.charAt(j)) {
+                i++;
+                j++;
+            }
+            
+            // If we found a match for the whole string B
+            if (j == m) {
+                return true;
+            }
+            
+            // Mismatch after j matches
+            else if (i < n && A.charAt(i) != B.charAt(j)) {
+                if (j != 0) {
+                    j = lps[j - 1];
+                } else {
+                    i++;
+                }
+            }
+        }
+        
+        return false;
+    }
+    
+    // Helper function to build LPS array
+    public static int[] createLPSArray(String B) {
+        int m = B.length();
+        int[] lps = new int[m];
+        
+        int length = 0;
+        int i = 1;
+        
+        lps[0] = 0; // LPS of single character is always 0
+        
+        while (i < m) {
+            if (B.charAt(i) == B.charAt(length)) {
+                length++;
+                lps[i] = length;
+                i++;
+            } else {
+                if (length != 0) {
+                    length = lps[length - 1];
+                } else {
+                    lps[i] = 0;
+                    i++;
+                }
+            }
+        }
+        
+        return lps;
+    }
+
+    }
