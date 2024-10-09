@@ -1,12 +1,4 @@
-Determine whether B is a substring of A
-
-Task Points: 50
-
-Topic
-
-Data Structure and Algo
-Task details
-
+Determine whether B is a substring of A(KMP Algorithm)
 Problem Statement:
 
 Given two strings A and B, determine whether B is a substring of A or not.
