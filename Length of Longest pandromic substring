@@ -1,12 +1,4 @@
 Length of Longest pandromic substring
-
-Task Points: 100
-
-Topic
-
-Data Structure and Algo
-Task details
-
 Problem Statement:
 
 Given a string s, find the length of longest palindromic substring in s.
