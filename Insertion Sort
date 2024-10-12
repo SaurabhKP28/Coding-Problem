@@ -4,21 +4,10 @@ Write a program to sort the array in ascending order using Insertion sort algori
 
 Note both the array and size is already given.
 
-Input:-
-
-[4,3,2,5,1]
-
-
-
-Output:-
-
-[1,2,3,4,5]
-
-
+Input:- [4,3,2,5,1]
+Output:- [1,2,3,4,5]
 
 Stuck on how to code watch the hint Video.
-
-
 
 Click on submit after all the test-cases has passed.
 =================================================================================================================================================================================================================
