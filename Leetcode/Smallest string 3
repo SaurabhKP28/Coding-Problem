@@ -1,1 +1,61 @@
+Smallest String 3
+
+
+Company
+
+Wallmart Labs
+Amazon
+Task details
+
+Problem Statement
+
+Given N and K, find the lexicographically smallest string of length N using only the first K lowercase letters of the alphabet such that each letter is used 
+at least once and no two adjacent characters are equal.
+
+If such a string doesn't exist, return -1.
+
+Input
+
+The first line of input contains a single integer, T (1 <= T <= 100).
+
+Then T lines follow, each containing two space-separated integers, N (1 <= N <= 10^5) and K (1 <= K <= 26).
+
+It is guaranteed that sum of N over all test cases does not exceed 10^6
+
+Output
+
+For each test case, output its answer in a new line.
+
+Example
+
+Sample Input:
+
+2
+
+2 3
+
+3 2
+
+
+
+Sample Output:
+
+-1
+
+aba 
+In the first test case, it's impossible to create a string of length 2 using 3 letters where each letter must be used at least once.
+Hence, the output is -1. In the second test case, we can create the string 'aba' using the first 2 letters of the alphabet (a, b) of length 3 
+where each letter is used at least once and no two adjacent characters are the same.
+Sample Input 2:
+
+1
+
+7 3
+Sample Output 2:
+
+abababc
+*******************************************************************************************************************************************************************
+*******************************************************************************************************************************************************************
+Solution
+*******************************************************************************************************************************************************************
 
