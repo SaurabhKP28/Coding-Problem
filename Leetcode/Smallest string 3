@@ -58,4 +58,41 @@ abababc
 *******************************************************************************************************************************************************************
 Solution
 *******************************************************************************************************************************************************************
+public class Main {
+
+
+//========== User's Code Starts Here ==========
+static String generateLexicographicallyString(int N, int K) {
+
+    if (N < K) {
+        return "-1";
+    }
+
+    StringBuilder result = new StringBuilder();
+
+    // Add alternating 'a' and 'b' as long as possible
+    for (int i = 0; i < N - (K - 2); i++) {
+        result.append((i % 2 == 0) ? 'a' : 'b');
+    }
+
+    // Add the rest of the distinct letters from 'c' to the Kth letter
+    for (int i = 2; i < K; i++) {
+        result.append((char) ('a' + i));
+    }
+
+    return result.toString();
+}
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int T = scanner.nextInt();
+
+        for (int t = 0; t < T; t++) {
+            int N = scanner.nextInt();
+            int K = scanner.nextInt();
+
+            String answer = generateLexicographicallyString(N, K);
+            System.out.println(answer);
+        }
+    }
+}
 
