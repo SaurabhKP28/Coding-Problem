@@ -1,1 +1,66 @@
+How many swaps ?
+
+Task Points: 200
+Topic
+
+Data Structure and Algo
+Task details
+
+You are maintaining a register of students roll numbers which is a array the roll numbers can be in sorted or unsorted manner .
+
+The task is to arrange all the roll numbers in ascending order , Find the number of changes required to do so
+
+that number should be minimum
+
+
+
+Example 1:
+
+Input:
+
+ nums = {2, 8, 5, 4}
+
+Output: 1
+
+Explanation: swap 8 with 4.
+
+
+
+Input:
+
+ nums = {10, 19, 6, 3, 5}
+
+Output: 2
+
+Explanation: swap 10 with 3 and swap 19 with 5.
+
+
+
+Input:
+
+ nums = {10, 19, 6, 5, 3}
+
+Output: 3
+
+Explanation: 
+
+1st - swap 10 with 5
+
+then swap 5 with 19
+
+and then swap 19 with 3.
+
+
+
+HINT:-
+
+With Example :- {10,9,6,5,3}
+
+Sort the Array Given to you =>{3,5,6,10,19}
+In HashMap store the correct index of an element =>{3:0,5:1,6:2,10:3,19:4)
+Now since we know the index we can use the Last technique of rotate array concept. (when there is a cycle count will decrease by 1)
+********************************************************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************************************************
+Solution
+********************************************************************************************************************************************************************************************************************
 
