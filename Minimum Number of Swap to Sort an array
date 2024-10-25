@@ -64,3 +64,61 @@ Now since we know the index we can use the Last technique of rotate array concep
 Solution
 ********************************************************************************************************************************************************************************************************************
 
+class Solution {
+    public int total_swaps(int[] nums) {
+       int n = nums.length, swaps = 0;
+
+    // Create pairs of (number, index) and sort by number
+     int[] sortedNums = new int[n];
+     for (int i = 0; i < n; i++) 
+     {
+       sortedNums[i] = nums[i];
+     }
+    Arrays.sort(sortedNums);
+
+    // Map each number to its sorted index
+    HashMap<Integer, Integer> index = new HashMap<>();
+    for (int i = 0; i < n; i++) index.put(sortedNums[i], i);
+
+    boolean[] visited = new boolean[n];
+
+    for (int i = 0; i < n; i++) {
+        if (visited[i] || index.get(nums[i]) == i) continue;
+
+        int cycleLength = 0, j = i;
+        while (!visited[j]) {
+            visited[j] = true;
+            j = index.get(nums[j]);
+            cycleLength++;
+        }
+        if (cycleLength > 0) swaps += cycleLength - 1;
+    }
+    return swaps;
+    }
+}
+
+//========== User's Code Ends Here ==========
+
+
+public class Main
+{
+   
+   
+     public static void main(String[]args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String y=sc.nextLine();
+        String n =sc.nextLine();
+        Solution s = new Solution();
+        String s_arr[]=n.split(" ");
+        int arr[]=new int[s_arr.length];
+        for(int i=0;i<s_arr.length;i++)
+        {
+            arr[i]=Integer.parseInt(s_arr[i]);
+        }
+        
+        int max= s.total_swaps(arr);
+        
+        System.out.println(max);
+    }
+}
