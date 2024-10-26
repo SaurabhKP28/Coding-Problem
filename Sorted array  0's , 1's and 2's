@@ -2,8 +2,6 @@ Problem Statement:
 
 Given an array nums containing only 0s, 1s, and 2s, your task is to sort the array in ascending order.
 
-
-
 Constraints:
 
 1 <= nums.length <= 10^5
