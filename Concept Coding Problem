@@ -1,0 +1,75 @@
+Test Question - 3
+
+Task Points: 250
+
+Points Awarded: 250/250
+
+Test Cases passed: 16/16
+
+Task Status:
+Reviewed
+
+Topic
+
+Data Structure and Algo
+Task details
+
+Problem Statement
+
+At the annual Byteland fair, Geek organized a competition with N participants, each having unique scores (positive or negative). The task was to create groups (G1, G2, ...)
+so that the total score is maximized. Each group's score was the sum of its members' scores, and the total score was the sum of squares of these group scores. Geek wants to
+know the largest and smallest possible group sizes for the maximum total score. These sizes represent the maximum and minimum sizes of groups that can be formed while optimizing the total score.
+
+
+
+Note :- All Elements are positive.
+
+
+
+ Constraints:
+
+- 1 ≤ N ≤ 10^5
+
+- 1 ≤ |Ai| ≤ 10^9 for each valid i
+
+- The sum of N over all test cases does not exceed 5 * 10^5
+
+
+
+Your Task -You don't need to read input or print anything. Complete the function competitionOfSharpener() which takes array as input parameters and returns an Array of size 2
+who is (Arr[0]) contain the size of the largest possible group and (Arr[1]) contain the smallest possible group.
+
+
+
+Simple Input:
+
+5
+
+5 2 4 6 7
+
+Simple Output:
+
+5 5
+
+
+
+Simple Input:
+
+6
+
+99 3 1 7 2 89
+
+
+
+Simple Output:
+
+6 6
+
+Explanation:
+
+Example case 1: To maximize the total score, everyone has to belong to the same group with scores [5, 2, 4, 6, 7]. For this group, X = 5 + 2 + 4 + 6 + 7 = 24 and the total score is 24^2 = 576. 
+The size of the largest possible group, as well as the size of the smallest possible group, is 5.
+********************************************************************************************************************************************************************************************************************
+********************************************************************************************************************************************************************************************************************
+Solution
+********************************************************************************************************************************************************************************************************************
