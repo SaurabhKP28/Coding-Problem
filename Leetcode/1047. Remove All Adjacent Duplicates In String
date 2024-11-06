@@ -17,3 +17,27 @@ Return the final string after all such duplicate removals have been made. It can
 *********************************************************************************************************************************************************************
 solution
 *********************************************************************************************************************************************************************
+class Solution {
+    public String removeDuplicates(String s) {
+         Stack<Character> stack = new Stack<>();
+        
+        // Traverse the input string
+        for (char c : s.toCharArray()) {
+            // Check if the stack is not empty and the top element is the same as the current character
+            if (!stack.isEmpty() && stack.peek() == c) {
+                stack.pop(); // Remove the duplicate
+            } else {
+                stack.push(c); // Add the character to the stack
+            }
+        }
+        
+        // Build the result from the stack
+        StringBuilder result = new StringBuilder();
+        while (!stack.isEmpty()) {
+            result.append(stack.pop());
+        }
+        
+        // Reverse the result to get the correct order
+        return result.reverse().toString();
+    }
+}
