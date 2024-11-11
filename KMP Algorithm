@@ -4,7 +4,7 @@ Problem Statement:
 Given two strings A and B, determine whether B is a substring of A or not.
 
 
-
+ 
 Constraints:
 
 The lengths of strings A and B are in the range [1, 1000].
