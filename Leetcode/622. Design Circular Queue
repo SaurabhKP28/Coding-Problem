@@ -55,3 +55,80 @@ At most 3000 calls will be made to enQueue, deQueue, Front, Rear, isEmpty, and i
 ********************************************************************************************************************************************************************
 Solution
 ********************************************************************************************************************************************************************
+class MyCircularQueue {
+    private int[] queue;
+    private int front;
+    private int rear;
+    private int size;
+    private int capacity;
+
+    // Constructor to initialize the queue with a given capacity
+    public MyCircularQueue(int k) {
+        capacity = k;
+        queue = new int[capacity];
+        front = 0;
+        rear = -1;
+        size = 0;
+    }
+
+    // Method to insert an element into the circular queue
+    public boolean enQueue(int value) {
+        if (isFull()) {
+            return false;
+        }
+        rear = (rear + 1) % capacity;
+        queue[rear] = value;
+        size++;
+        return true;
+    }
+
+    // Method to delete an element from the circular queue
+    public boolean deQueue() {
+        if (isEmpty()) {
+            return false;
+        }
+        front = (front + 1) % capacity;
+        size--;
+        return true;
+    }
+
+    // Method to get the front item from the queue
+    public int Front() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return queue[front];
+    }
+
+    // Method to get the last item from the queue
+    public int Rear() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return queue[rear];
+    }
+
+    // Method to check whether the circular queue is empty
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
+    // Method to check whether the circular queue is full
+    public boolean isFull() {
+        return size == capacity;
+    }
+
+    // Main method to test the circular queue
+    public static void main(String[] args) {
+        MyCircularQueue myCircularQueue = new MyCircularQueue(3);
+        System.out.println(myCircularQueue.enQueue(1)); // Output: true
+        System.out.println(myCircularQueue.enQueue(2)); // Output: true
+        System.out.println(myCircularQueue.enQueue(3)); // Output: true
+        System.out.println(myCircularQueue.enQueue(4)); // Output: false (queue is full)
+        System.out.println(myCircularQueue.Rear());     // Output: 3
+        System.out.println(myCircularQueue.isFull());   // Output: true
+        System.out.println(myCircularQueue.deQueue());  // Output: true
+        System.out.println(myCircularQueue.enQueue(4)); // Output: true
+        System.out.println(myCircularQueue.Rear());     // Output: 4
+    }
+}
