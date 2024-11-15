@@ -70,4 +70,55 @@ Explanation 2:
 
 Solution
 ********************************************************************************************************************************************************************************************************************
+class Solution {
+    public String solve(String A) {
+        Queue<Character> queue = new LinkedList<>();
+        // Map to store the frequency of characters
+        int[] freq = new int[26];
+        
+        // StringBuilder to build the result
+        StringBuilder result = new StringBuilder();
+        
+        for (char c : A.toCharArray()) {
+            // Increment frequency count
+            freq[c - 'a']++;
+            
+            // Add the character to the queue
+            queue.add(c);
+            
+            // Check the queue for the first non-repeating character
+            while (!queue.isEmpty() && freq[queue.peek() - 'a'] > 1) {
+                queue.poll();
+            }
+            
+            // Append the first non-repeating character or '#' to the result
+            if (queue.isEmpty()) {
+                result.append('#');
+            } else {
+                result.append(queue.peek());
+            }
+        }
+        
+        return result.toString();
+    }
+}
 
+
+//========== User's Code Ends Here ==========
+
+
+
+public class Main
+{
+   
+    
+     public static void main(String[]args)
+    {
+        Scanner sc=new Scanner(System.in);
+        String n =sc.nextLine();
+        Solution s = new Solution();
+        
+        String output = s.solve(n);
+        System.out.println(output);
+    }
+}
