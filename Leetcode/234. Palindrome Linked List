@@ -1,1 +1,72 @@
+234. Palindrome Linked List
+Easy
 
+16832
+
+903
+
+Add to List
+
+Share
+Given the head of a singly linked list, return true if it is a palindrome or false otherwise.
+
+ 
+
+Example 1:
+
+
+Input: head = [1,2,2,1]
+Output: true
+Example 2:
+
+
+Input: head = [1,2]
+Output: false
+ 
+
+Constraints:
+
+The number of nodes in the list is in the range [1, 105].
+0 <= Node.val <= 9
+*******************************************************************************************************************************************************************
+*******************************************************************************************************************************************************************
+Solution
+*******************************************************************************************************************************************************************
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        ListNode slow = head , fast = head;
+        while(fast != null && fast.next != null)
+        {
+            slow = slow.next; // Move slow pointer one step at a time
+            fast = fast.next.next; // Move fast pointer two steps at a time
+        }
+        
+        ListNode prev = null;
+        while(slow != null) 
+        {
+             ListNode temp = slow.next;  // Store the next node
+             slow.next = prev;           // Reverse the current node's pointer
+             prev = slow;                // Move the prev pointer one step forward
+             slow = temp;                // Move the slow pointer one step forward
+        }
+        
+        while(prev != null)
+        {
+             if(head.val != prev.val) return false;  // If values don't match, the list is not a palindrome
+             head = head.next;  // Move the head pointer one step forward
+             prev = prev.next;  // Move the prev pointer one step forward
+        }
+        return true;
+    }
+}
