@@ -35,3 +35,35 @@ All the integers of nums are unique.
 *******************************************************************************************************************************************************************
 Solution
 *******************************************************************************************************************************************************************
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+
+         List<List<Integer>> result = new ArrayList<>();
+        permuteHelper(nums, 0, result);
+        return result;
+    }
+         // Function to swap values at two indices
+        private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+      // Helper function to generate permutations
+    private void permuteHelper(int[] nums, int start, List<List<Integer>> result) {
+        // If we've reached the end of the array, add the current permutation
+        if (start == nums.length) {
+            List<Integer> currentPermutation = new ArrayList<>();
+            for (int num : nums) {
+                currentPermutation.add(num);
+            }
+            result.add(currentPermutation);
+        } else {
+            // Generate permutations by swapping each element
+            for (int i = start; i < nums.length; i++) {
+                swap(nums, start, i); // Swap the current element with the start element
+                permuteHelper(nums, start + 1, result); // Recurse for the next position
+                swap(nums, start, i); // Backtrack by swapping back
+            }
+        }  
+    }   
+}
