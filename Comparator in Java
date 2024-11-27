@@ -1,6 +1,6 @@
  Write a Program to create a Class Employee
 
-It contains two attributes -> Name, Salary
+It contains two attributes -> Name, Salary 
 
 Create 5 objects and initialize any random values for Name and Salary to it.
 
