@@ -23,7 +23,7 @@ A subsequence of an array is a new array generated from the original array by de
 Example 1:
 
 Input: nums = [4,6,1,2], k = 2
-Output: 3
+Output: 3 
 Explanation: In this example, we apply the following operations:
 - Choose index 1, replace it with 4 (from range [4,8]), nums = [4,4,1,2].
 - Choose index 3, replace it with 4 (from range [0,4]), nums = [4,4,1,4].
