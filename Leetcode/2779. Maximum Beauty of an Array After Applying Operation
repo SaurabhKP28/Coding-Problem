@@ -6,7 +6,7 @@ Add to List
 Share
 You are given a 0-indexed array nums and a non-negative integer k.
 
-In one operation, you can do the following:
+In one operation, you can do the following: 
 
 Choose an index i that hasn't been chosen before from the range [0, nums.length - 1].
 Replace nums[i] with any integer from the range [nums[i] - k, nums[i] + k].
